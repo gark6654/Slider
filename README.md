@@ -49,7 +49,7 @@ Open http://localhost:3000 to view it in the browser.
 Если вы хотите использовать slider и не хотите импортировать весь проект, вы можете импортировать только папку "slider".После этого импортируйте файл «Slider.js» из папки "slider" и создайте компонент "slider" в проекте. И теперь вы можете создавать слайды с HTML-тегами в нем.
 ПРИМЕР:{
         <Slider>
-            <h1> Доброе утро </ h1>
+              <p> Доброе утро </p>
         </Slider>
 }
 Каждый тег HTML будет выглядеть как отдельный слайд.
@@ -69,10 +69,10 @@ Open http://localhost:3000 to view it in the browser.
 autoPlay получает {true} или {false}, а второй prop (duration) будет определять время переключения слайдов в секунду
 ПРИМЕРЕ:{
         <Slider autoPlay = {true} duration = {2}>
-            <img alt = 'img' src = '. / img / 293.jpg '/>
-            <img alt = 'img' src = '. / img / 296.jpg '/>
-            <img alt = 'img' src = '. / img / 298.jpeg '/>
-            <img alt = 'img' src = '. / img / 299.jpeg '/>
+            <img alt = 'img' src = ''/>
+            <img alt = 'img' src = ''/>
+            <img alt = 'img' src = ''/>
+            <img alt = 'img' src = ''/>
         </Slider>
 }
 
