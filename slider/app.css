@@ -46,6 +46,9 @@ body {
 .dot:focus {
     outline: none;
 }
+.dot:hover {
+    background: skyblue;
+}
 .selectedDot {
     background: yellow;
 }
