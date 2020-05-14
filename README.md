@@ -2,23 +2,23 @@
 
 If you want to use the slider and do not want to import the entire project, you can import only the “slider” folder. After that, import the “Slider.js” file from the “slider” folder and create the “slider” component in the project. And now you can create slides with HTML tags in it.
 EXAMPLE:{
-    <!-- 
+     
         <Slider>
-            <h1> Good morning </ h1>
+            <p> Good morning </p>
         </Slider>
-    -->
+    
 }
 Each HTML tag will look like a separate slide.
 This slide is stylized and customized for images, and it will be convenient to create <img /> tags in it. 
 EXAMPLE:{
-    <!-- 
+    
         <Slider>
             <img alt = 'img' src = '. / img / 293.jpg '/>
             <img alt = 'img' src = '. / img / 296.jpg '/>
             <img alt = 'img' src = '. / img / 298.jpeg '/>
             <img alt = 'img' src = '. / img / 299.jpeg '/>
         </Slider>
-    -->
+  
 }
 But no one forbids you to customize the slider and styles. 😉😉
 
@@ -26,14 +26,14 @@ The slider receives 2 props (autoPlay and duration), if you do not send him thes
 The first prop (autoPlay) will include automatic slide switching.
 autoPlay gets {true} or {false} and the second prop (duration) will determine the slide switch time in seconds.
 EXAMPLE:{
-    <!-- 
+    
         <Slider autoPlay = {true} duration = {2}>
             <img alt = 'img' src = '. / img / 293.jpg '/>
             <img alt = 'img' src = '. / img / 296.jpg '/>
             <img alt = 'img' src = '. / img / 298.jpeg '/>
             <img alt = 'img' src = '. / img / 299.jpeg '/>
         </Slider>
-    -->
+ 
 }
 
 Explanation the code, the code will create a slider and insert images (<img /> tags) into it and will flip the slide every 2 seconds.
