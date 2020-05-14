@@ -1,4 +1,7 @@
-<!-- ENGLISH -->
+Եթե անգլերենս չհասկանաս տակը ռուսերեն ել կա 
+
+
+ENGLISH 
 
 If you want to use the slider and do not want to import the entire project, you can import only the “slider” folder. After that, import the “Slider.js” file from the “slider” folder and create the “slider” component in the project. And now you can create slides with HTML tags in it.
 EXAMPLE:{
@@ -48,7 +51,7 @@ Open http://localhost:3000 to view it in the browser.
 
 <!-- ========================================================================================= -->
 
-<!-- Русский -->
+Русский 
 
 Если вы хотите использовать slider и не хотите импортировать весь проект, вы можете импортировать только папку "slider".После этого импортируйте файл «Slider.js» из папки "slider" и создайте компонент "slider" в проекте. И теперь вы можете создавать слайды с HTML-тегами в нем.
 ПРИМЕР:{
