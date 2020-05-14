@@ -8,7 +8,7 @@ function Slider(props) {
     const [childsCount, setchildsCount] = useState(0);
     const [showIndex, setShowIndex] = useState(0);
     const [autoPlay, setAutoPlay] = useState(false);
-    const [duration, setDuration] = useState('');
+    const [duration, setDuration] = useState(0);
 
     let click = false; // play is check this variable for run
 
@@ -24,7 +24,9 @@ function Slider(props) {
         }
         if (props.autoPlay) {
             setAutoPlay(true);
-            setDuration(props.duration * 1000);
+            if (props.duration) {
+                setDuration(props.duration * 1000);
+            }
         }
     }, [props]);
 
