@@ -13,7 +13,7 @@ EXAMPLE:{
 }
 
 Each HTML tag will look like a separate slide.
-This slide is stylized and customized for images, and it will be convenient to create { '<img />' }tags in it. 
+This slide is stylized and customized for images, and it will be convenient to create { 'img /' }tags in it. 
 EXAMPLE:{
 
         <Slider>
@@ -41,7 +41,7 @@ EXAMPLE:{
 
 }
 
-Explanation the code, the code will create a slider and insert images (<img /> tags) into it and will flip the slide every 2 seconds.
+Explanation the code, the code will create a slider and insert images (img / tags) into it and will flip the slide every 2 seconds.
 
 If you still decide import full project you can run this project via 
 
@@ -63,7 +63,7 @@ Open http://localhost:3000 to view it in the browser.
 }
 
 Каждый тег HTML будет выглядеть как отдельный слайд.
-Этот слайд стилизован и настроен для изображений, и в нем будет удобно создавать теги { '<img />' }. 
+Этот слайд стилизован и настроен для изображений, и в нем будет удобно создавать теги { 'img /' }. 
 ПРИМЕР:{
 
         <Slider>
@@ -90,7 +90,7 @@ autoPlay получает {true} или {false}, а второй prop (duration)
 
 }
 
-Пояснения кода, код создаст слайдер и вставит в него изображения (теги <img />) и будет переворачивать слайд каждые 2 секунды.
+Пояснения кода, код создаст слайдер и вставит в него изображения (теги img /) и будет переворачивать слайд каждые 2 секунды.
 
 Если вы все еще решили импортировать полный проект, вы можете запустить этот проект через
 
