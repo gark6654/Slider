@@ -13,7 +13,7 @@ EXAMPLE:{
 }
 
 Each HTML tag will look like a separate slide.
-This slide is stylized and customized for images, and it will be convenient to create <img /> tags in it. 
+This slide is stylized and customized for images, and it will be convenient to create { '<img />' }tags in it. 
 EXAMPLE:{
 
         <Slider>
@@ -63,7 +63,7 @@ Open http://localhost:3000 to view it in the browser.
 }
 
 Каждый тег HTML будет выглядеть как отдельный слайд.
-Этот слайд стилизован и настроен для изображений, и в нем будет удобно создавать теги <img />. 
+Этот слайд стилизован и настроен для изображений, и в нем будет удобно создавать теги { '<img />' }. 
 ПРИМЕР:{
 
         <Slider>
