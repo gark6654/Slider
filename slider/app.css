@@ -15,6 +15,7 @@ body {
 }
 
 .slide {
+    position: relative;
     width: 100%;
 }
 
@@ -46,9 +47,34 @@ body {
 .dot:focus {
     outline: none;
 }
-.dot:hover {
-    background: skyblue;
-}
 .selectedDot {
     background: yellow;
+}
+
+.toLeft {
+    animation: slideLeft 1s;
+}
+
+.toRight {
+    animation: slideRight 1s;
+}
+
+@keyframes slideLeft {
+    from {
+        left: 100%;
+    }
+    
+    to {
+        left: 0px;
+    }
+}
+
+@keyframes slideRight {
+    from {
+        right: 100%;
+    }
+    
+    to {
+        right: 0px;
+    }
 }

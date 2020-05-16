@@ -9,6 +9,7 @@ function Slider(props) {
     const [showIndex, setShowIndex] = useState(0);
     const [autoPlay, setAutoPlay] = useState(false);
     const [duration, setDuration] = useState(0);
+    const [className, setClass] = useState('');
 
     let click = false; // play is check this variable for run
 
@@ -18,7 +19,7 @@ function Slider(props) {
             setchildsCount(newChildsCount);
 
             const newChilds = Children.map(props.children, child => (
-                <article className="slide">{child}</article>
+                <article className={`slide ${className}`}>{child}</article>
             ));
             setchilds([...newChilds]);
         }
@@ -29,6 +30,18 @@ function Slider(props) {
             }
         }
     }, [props]);
+
+    useEffect(() => {
+        const newChildsCount = Children.count(props.children);
+        if (newChildsCount) {
+            setchildsCount(newChildsCount);
+
+            const newChilds = Children.map(props.children, child => (
+                <article className={`slide ${className}`}>{child}</article>
+            ));
+            setchilds([...newChilds]);
+        }
+    }, [className]);
 
     function play() {
         if (!click) {
@@ -45,6 +58,7 @@ function Slider(props) {
         click = true;
         if (showIndex !== childsCount - 1) {
             setShowIndex(showIndex + 1);
+            getClass(showIndex, showIndex + 1);
         }
         else {
             setShowIndex(0);
@@ -55,6 +69,7 @@ function Slider(props) {
         click = true;
         if (showIndex > 0) {
             setShowIndex(showIndex - 1);
+            getClass(showIndex, showIndex - 1);
         }
         else {
             setShowIndex(childsCount - 1);
@@ -64,6 +79,16 @@ function Slider(props) {
     function setFromDot(id) {
         click = true;
         setShowIndex(id);
+        getClass(showIndex, id);
+    }
+
+    function getClass(prevIndex, newIndex) {
+        if (prevIndex < newIndex) {
+            setClass('toLeft');
+        }
+        else {
+            setClass('toRight');
+        }
     }
 
     if (autoPlay) {
