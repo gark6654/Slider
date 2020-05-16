@@ -46,6 +46,7 @@ function Slider(props) {
     function play() {
         if (!click) {
             if (showIndex !== childsCount - 1) {
+                getClass(showIndex, showIndex + 1);
                 setShowIndex(showIndex + 1);
             }
             else {
