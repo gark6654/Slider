@@ -80,16 +80,14 @@ function Slider(props) {
             <article className="slider">
                 {childs[showIndex]}
             </article>
-            {
-                <Controller
-                    key={0}
-                    nextSlide={nextSlide}
-                    prevSlide={prevSlide}
-                    dotsCount={childsCount} 
-                    selectedDot={showIndex}
-                    selectDot={setFromDot}
-                />
-            }
+            <Controller
+                key={0}
+                nextSlide={nextSlide}
+                prevSlide={prevSlide}
+                dotsCount={childsCount} 
+                selectedDot={showIndex}
+                selectDot={setFromDot}
+            />
         </article>
     );
 }
