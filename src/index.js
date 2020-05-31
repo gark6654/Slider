@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Slider from './slider/Slider';
 
-const el = React.createRef();
 
 ReactDOM.render(
   <Slider autoPlay={true} duration={2}>
