@@ -1,80 +1,43 @@
-body {
-    text-align: center;
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
 }
 
-.container {
-    width: 80%;
-    margin: auto;
+button:focus {
+    outline: none;
 }
+
 .slider {
-    width: 100%;
-    height: 500px;
-    box-sizing: border-box;
-    border: 1px solid black;
-    padding: 15px;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    overflow: hidden;
 }
 
 .slide {
-    position: relative;
-    width: 100%;
+    height: 700px;
+    transition: transform .5s;
 }
 
 .slide img {
-    max-height: 450px;
+    max-height: 700px;
 }
 
 .controller {
-    width: 100%;
     margin: auto;
-    box-sizing: border-box;
-    padding: 10px;
-    box-shadow: .5px 2px 5px gray;
-}
-
-.dotsBox {
-    margin: 10px;
+    padding: 5px;
+    text-align: center;
+    width: 70%;
 }
 
 .dot {
-    cursor: pointer;
-    width: 25px;
-    height: 25px;
-    border: 1px solid black;
-    border-radius: 50%;
-    padding: 5px;
+    width: 15px;
+    height: 15px;
     margin: 5px;
-}
-.dot:focus {
-    outline: none;
+    border: 1px solid black;
+    border-radius: 100%;
 }
 .selectedDot {
-    background: yellow;
-}
-
-.toLeft {
-    animation: slideLeft 1s;
-}
-
-.toRight {
-    animation: slideRight 1s;
-}
-
-@keyframes slideLeft {
-    from {
-        left: 100%;
-    }
-    
-    to {
-        left: 0px;
-    }
-}
-
-@keyframes slideRight {
-    from {
-        right: 100%;
-    }
-    
-    to {
-        right: 0px;
-    }
+    background-color: lightseagreen;
 }

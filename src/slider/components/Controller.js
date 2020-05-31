@@ -7,8 +7,8 @@ function Controller(props) {
             <article>
                 <Dots selectFromDot={props.selectDot} count={props.dotsCount} selected={props.selectedDot}  />
             </article>
-            <button onClick={props.prevSlide}>Prev</button>
-            <button onClick={props.nextSlide}>Next</button>
+            <button onClick={props.prev}>Prev</button>
+            <button onClick={props.next}>Next</button>
         </article>
     );
 }

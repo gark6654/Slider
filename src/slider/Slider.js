@@ -1,15 +1,18 @@
-import React, { useState, useEffect, Children } from 'react';
+import React, { useState, useEffect, Children, useRef, forwardRef } from 'react';
 import Controller from './components/Controller';
 import './app.css';
 
 
 function Slider(props) {
-    const [childs, setchilds] = useState(['Children Empty']);
+    const sliderRef = useRef();
+
+    // const [childs, setchilds] = useState(['Children Empty']);
     const [childsCount, setchildsCount] = useState(0);
+    const [x, setX] = useState(0);
     const [showIndex, setShowIndex] = useState(0);
     const [autoPlay, setAutoPlay] = useState(false);
     const [duration, setDuration] = useState(0);
-    const [className, setClass] = useState('');
+
 
     let click = false; // play is check this variable for run
 
@@ -18,77 +21,68 @@ function Slider(props) {
         if (newChildsCount) {
             setchildsCount(newChildsCount);
 
-            const newChilds = Children.map(props.children, child => (
-                <article className={`slide ${className}`}>{child}</article>
-            ));
-            setchilds([...newChilds]);
-        }
-        if (props.autoPlay) {
-            setAutoPlay(true);
-            if (props.duration) {
-                setDuration(props.duration * 1000);
+            if (props.autoPlay) {
+                if (props.duration !== 0) {
+                    setAutoPlay(true);
+                    setDuration(props.duration * 1000);
+                }
             }
         }
     }, [props]);
 
-    useEffect(() => {
-        const newChildsCount = Children.count(props.children);
-        if (newChildsCount) {
-            setchildsCount(newChildsCount);
-
-            const newChilds = Children.map(props.children, child => (
-                <article className={`slide ${className}`}>{child}</article>
-            ));
-            setchilds([...newChilds]);
-        }
-    }, [className]);
-
-    function play() {
-        if (!click) {
-            if (showIndex !== childsCount - 1) {
-                getClass(showIndex, showIndex + 1);
-                setShowIndex(showIndex + 1);
-            }
-            else {
-                setShowIndex(0);
-            }
-        }
-    }
-
     function nextSlide() {
         click = true;
-        if (showIndex !== childsCount - 1) {
-            setShowIndex(showIndex + 1);
-            getClass(showIndex, showIndex + 1);
+
+        const childrens = sliderRef.current.children;
+        const nextChild = showIndex + 1;
+
+        setShowIndex(nextChild);
+        if (childrens[nextChild]) {
+            setX(x + 100);
         }
         else {
+            setX(0);
             setShowIndex(0);
         }
     }
 
     function prevSlide() {
         click = true;
-        if (showIndex > 0) {
-            setShowIndex(showIndex - 1);
-            getClass(showIndex, showIndex - 1);
+
+        const childrens = sliderRef.current.children;
+        const prevChild = showIndex - 1;
+        const lastChild = childrens.length - 1;
+
+        setShowIndex(prevChild);
+        if (childrens[prevChild]) {
+            setX(x - 100);
         }
         else {
-            setShowIndex(childsCount - 1);
+            setX(100 * (lastChild));
+            setShowIndex(lastChild);
         }
     }
 
-    function setFromDot(id) {
+    function selectDot(id) {
         click = true;
+
+        setX(100 * id);
         setShowIndex(id);
-        getClass(showIndex, id);
     }
 
-    function getClass(prevIndex, newIndex) {
-        if (prevIndex < newIndex) {
-            setClass('toLeft');
-        }
-        else {
-            setClass('toRight');
+    function play() {
+        if (!click) {
+            const childrens = sliderRef.current.children;
+            const nextChild = showIndex + 1;
+
+            if (childrens[nextChild]) {
+                setShowIndex(nextChild);
+                setX(x + 100);
+            }
+            else {
+                setX(0);
+                setShowIndex(0);
+            }
         }
     }
 
@@ -102,18 +96,26 @@ function Slider(props) {
     }
 
     return (
-        <article className="container">
-            <article className="slider">
-                {childs[showIndex]}
+        <article>
+            <article className="slider" ref={sliderRef}>
+                {
+                    Children.map(props.children, child => (
+                        <article className='slide' style={{ transform: `translateX(-${x}%)` }}>
+                            {child}
+                        </article>
+                    ))
+                }
             </article>
-            <Controller
-                key={0}
-                nextSlide={nextSlide}
-                prevSlide={prevSlide}
-                dotsCount={childsCount} 
-                selectedDot={showIndex}
-                selectDot={setFromDot}
-            />
+            <article className="controller">
+                <Controller
+                    next={nextSlide}
+                    prev={prevSlide}
+                    childsCount={childsCount}
+                    dotsCount={childsCount}
+                    selectedDot={showIndex}
+                    selectDot={selectDot}
+                />
+            </article>
         </article>
     );
 }

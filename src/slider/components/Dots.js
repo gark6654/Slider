@@ -13,7 +13,7 @@ function Dots(props) {
         props.selectFromDot(id);
     }
 
-    let button = [];
+    const button = [];
     for (let i = 0; i < count; i++) {
         button.push(
             <button 
