@@ -6,7 +6,6 @@ import './app.css';
 function Slider(props) {
     const sliderRef = useRef();
 
-    // const [childs, setchilds] = useState(['Children Empty']);
     const [childsCount, setchildsCount] = useState(0);
     const [x, setX] = useState(0);
     const [showIndex, setShowIndex] = useState(0);
@@ -36,8 +35,8 @@ function Slider(props) {
         const childrens = sliderRef.current.children;
         const nextChild = showIndex + 1;
 
-        setShowIndex(nextChild);
         if (childrens[nextChild]) {
+            setShowIndex(nextChild);
             setX(x + 100);
         }
         else {
@@ -53,21 +52,21 @@ function Slider(props) {
         const prevChild = showIndex - 1;
         const lastChild = childrens.length - 1;
 
-        setShowIndex(prevChild);
         if (childrens[prevChild]) {
+            setShowIndex(prevChild);
             setX(x - 100);
         }
         else {
-            setX(100 * (lastChild));
             setShowIndex(lastChild);
+            setX(100 * (lastChild));
         }
     }
 
     function selectDot(id) {
         click = true;
 
-        setX(100 * id);
         setShowIndex(id);
+        setX(100 * id);
     }
 
     function play() {
