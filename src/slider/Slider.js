@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Children, useRef, forwardRef } from 'react';
+import React, { useState, useEffect, Children, useRef } from 'react';
 import Controller from './components/Controller';
 import './app.css';
 
@@ -12,8 +12,8 @@ function Slider(props) {
     const [autoPlay, setAutoPlay] = useState(false);
     const [duration, setDuration] = useState(0);
 
+    let click = false;
 
-    let click = false; // play is check this variable for run
 
     useEffect(() => {
         const newChildsCount = Children.count(props.children);
@@ -31,7 +31,6 @@ function Slider(props) {
 
     function nextSlide() {
         click = true;
-
         const childrens = sliderRef.current.children;
         const nextChild = showIndex + 1;
 
@@ -47,7 +46,6 @@ function Slider(props) {
 
     function prevSlide() {
         click = true;
-
         const childrens = sliderRef.current.children;
         const prevChild = showIndex - 1;
         const lastChild = childrens.length - 1;
@@ -64,24 +62,17 @@ function Slider(props) {
 
     function selectDot(id) {
         click = true;
-
         setShowIndex(id);
         setX(100 * id);
     }
 
     function play() {
         if (!click) {
-            const childrens = sliderRef.current.children;
-            const nextChild = showIndex + 1;
-
-            if (childrens[nextChild]) {
-                setShowIndex(nextChild);
-                setX(x + 100);
-            }
-            else {
-                setX(0);
-                setShowIndex(0);
-            }
+            console.log('ok');
+            nextSlide();       
+        }
+        else {
+            // console.log('s');
         }
     }
 
