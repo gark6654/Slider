@@ -14,7 +14,6 @@ function Slider(props) {
 
     let click = false;
 
-
     useEffect(() => {
         const newChildsCount = Children.count(props.children);
         if (newChildsCount) {
@@ -30,7 +29,7 @@ function Slider(props) {
     }, [props]);
 
     function nextSlide() {
-        click = true;
+        click = true; 
         const childrens = sliderRef.current.children;
         const nextChild = showIndex + 1;
 
@@ -67,12 +66,21 @@ function Slider(props) {
     }
 
     function play() {
-        if (!click) {
-            console.log('ok');
-            nextSlide();       
+        if (click) {
+            console.log('OK');
         }
         else {
-            // console.log('s');
+            const childrens = sliderRef.current.children;
+            const nextChild = showIndex + 1;
+
+            if (childrens[nextChild]) {
+                setShowIndex(nextChild);
+                setX(x + 100);
+            }
+            else {
+                setX(0);
+                setShowIndex(0);
+            }
         }
     }
 
